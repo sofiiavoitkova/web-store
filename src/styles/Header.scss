@@ -1,0 +1,188 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+a,
+img,
+span,
+input,
+button,
+ion-icon {
+  display: block;
+}
+
+input,
+button {
+  background: none;
+  border: none;
+  font: inherit;
+}
+
+button {
+  text-align: left;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+ion-icon {
+  pointer-events: none;
+}
+
+html {
+  font-family: "Jost", sans-serif;
+  color: black;
+  scroll-behavior: smooth;
+}
+
+img {
+  height: auto;
+}
+
+.container {
+  padding-inline: 15px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+body {
+  padding-block: 0;
+  background: white;
+}
+
+.header {
+  position: relative;
+  padding-block: 15px;
+  border-bottom: 1px solid rgb(171, 168, 168);
+  margin-bottom: 67px;
+  background-color: white;
+  z-index: 100;
+}
+.header.active .navbar {
+  position: fixed;
+  top: 0;
+  box-shadow: 0 2px 20px hsla(0, 0%, 0%, 0.1);
+}
+
+.header .container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+}
+
+.header-search {
+  display: block;
+  position: relative;
+  width: max-content;
+}
+
+.header-search .input-field {
+  border: 1px solid rgb(171, 168, 168);
+  width: 280px;
+  padding: 12px 30px;
+  border-radius: 6px;
+  transition: 0.25s ease;
+}
+
+.header-search .input-field:focus {
+  outline: 1px solid black;
+}
+
+.header-search .search-btn {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: black;
+}
+
+.header-search .search-btn ion-icon {
+  width: 30px;
+}
+
+.header .logo {
+  margin-inline: auto;
+}
+
+.nav-open-btn,
+.header-action-btn:nth-child(2),
+.navbar-top,
+.overlay {
+  display: none;
+}
+
+.header-actions {
+  all: unset;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 15px;
+}
+
+.header-action-btn {
+  position: relative;
+  width: 50px;
+  text-align: center;
+}
+
+.header-action-btn ion-icon {
+  margin-inline: auto;
+  font-size: 22px;
+  margin-bottom: 3px;
+}
+
+.navbar {
+  all: unset;
+  position: absolute;
+  top: calc(100% + 1px);
+  left: 0;
+  width: 100%;
+  background: white;
+}
+
+.navbar.active {
+  display: block;
+}
+
+.navbar-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+.navbar-link {
+  font-size: 1.25rem;
+  font-weight: 500;
+  padding-block: 20px;
+  color: black;
+}
+
+.navbar-link:is(:hover, :focus) {
+  color: rgb(11, 107, 40);
+}
+
+// .overlay {
+//   display: none;
+// }
+
+// .overlay.active {
+//   display: block;
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 100%;
+//   background-color: rgba(0, 0, 0, 0.5);
+//   z-index: 100;
+// }
