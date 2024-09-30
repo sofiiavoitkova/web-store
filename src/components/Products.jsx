@@ -61,11 +61,7 @@ export default function Products() {
                   <li key={product.id}>
                     <div className="product-card">
                       <figure className="card-banner">
-                        <a
-                          href="product.html"
-                          className="product-link"
-                          data-id={product.id}
-                        >
+                        <a className="product-link" data-id={product.id}>
                           <img
                             src={product.image}
                             alt={product.title}
@@ -88,11 +84,7 @@ export default function Products() {
                       </figure>
                       <div className="card-content">
                         <h3 className="h4 card-title">
-                          <a
-                            href="product.html"
-                            className="product-link"
-                            data-id={product.id}
-                          >
+                          <a className="product-link" data-id={product.id}>
                             {product.title}
                           </a>
                         </h3>
