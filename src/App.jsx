@@ -1,18 +1,22 @@
-import Home from "./pages/Home.jsx";
-import Catalog from "./pages/Catalog";
-import "./styles/App.css";
+import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import ScrollToTop from "./components/ScrollToTop";
+import Home from "./pages/Home";
+import Catalog from "./pages/Catalog";
+import Cart from "./components/Cart";
+import { CartProvider } from "./context/CartContext";
+import "./styles/App.css";
 
 function App() {
   return (
-    <BrowserRouter>
-      <ScrollToTop />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/catalog" element={<Catalog />} />
-      </Routes>
-    </BrowserRouter>
+    <CartProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/catalog" element={<Catalog />} />
+          <Route path="/cart" element={<Cart />} />
+        </Routes>
+      </BrowserRouter>
+    </CartProvider>
   );
 }
 
