@@ -118,3 +118,20 @@ body {
 .navbar-link:is(:hover, :focus) {
   color: rgb(11, 107, 40);
 }
+
+.btn-badge {
+  position: absolute;
+  top: 8px;
+  right: 30px;
+  background-color: #000;
+  color: #fff;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  padding: 2px 6px;
+  font-size: 0.65rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
