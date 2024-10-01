@@ -2,7 +2,6 @@ import "../styles/Products.scss";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../context/CartContext";
-import Modal from "./Modal";
 import heroImage from "../assets/How-to-Choose-a-Pack_7G8A5173-scaled.jpg";
 import pack1 from "../assets/pack1.jpg";
 import pack2 from "../assets/pack2.jpg";
@@ -12,8 +11,6 @@ import pack4 from "../assets/pack5.jpg";
 export default function Products() {
   const navigate = useNavigate();
   const { addToCart } = useCart();
-  const [isModalOpen, setModalOpen] = useState(false);
-  const [selectedProduct, setSelectedProduct] = useState(null);
 
   const products = [
     { id: 34562, title: "Tor Backpack", price: 480.75, image: pack1 },
@@ -24,8 +21,10 @@ export default function Products() {
 
   const handleAddToCart = (product) => {
     addToCart(product);
-    setSelectedProduct(product);
-    setModalOpen(true);
+  };
+
+  const handleProductClick = (productId) => {
+    navigate(`/product/${productId}`);
   };
 
   return (
@@ -59,38 +58,37 @@ export default function Products() {
               <ul className="product-list">
                 {products.map((product) => (
                   <li key={product.id}>
-                    <div className="product-card">
+                    <div
+                      className="product-card"
+                      onClick={() => handleProductClick(product.id)}
+                    >
                       <figure className="card-banner">
-                        <a className="product-link" data-id={product.id}>
-                          <img
-                            src={product.image}
-                            alt={product.title}
-                            loading="lazy"
-                          />
-                        </a>
-                        <div className="card-actions">
-                          <button
-                            className="card-action-btn cart-btn"
-                            data-id={product.id}
-                            onClick={() => handleAddToCart(product)}
-                          >
-                            <ion-icon
-                              name="bag-handle-outline"
-                              aria-hidden="true"
-                            ></ion-icon>
-                            <p>Add to Cart</p>
-                          </button>
-                        </div>
+                        <img
+                          src={product.image}
+                          alt={product.title}
+                          loading="lazy"
+                        />
                       </figure>
                       <div className="card-content">
-                        <h3 className="h4 card-title">
-                          <a className="product-link" data-id={product.id}>
-                            {product.title}
-                          </a>
-                        </h3>
+                        <h3 className="h4 card-title">{product.title}</h3>
                         <div className="card-price">
                           <data>${product.price.toFixed(2)}</data>
                         </div>
+                      </div>
+                      <div className="card-actions">
+                        <button
+                          className="card-action-btn cart-btn"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleAddToCart(product);
+                          }}
+                        >
+                          <ion-icon
+                            name="bag-handle-outline"
+                            aria-hidden="true"
+                          ></ion-icon>
+                          <p>Add to Cart</p>
+                        </button>
                       </div>
                     </div>
                   </li>
@@ -107,12 +105,6 @@ export default function Products() {
           </section>
         </article>
       </main>
-
-      <Modal
-        isOpen={isModalOpen}
-        onClose={() => setModalOpen(false)}
-        product={selectedProduct}
-      />
     </>
   );
 }
