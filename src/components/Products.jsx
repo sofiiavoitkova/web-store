@@ -2,6 +2,7 @@ import "../styles/Products.scss";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../context/CartContext";
+import Modal from "./Modal";
 import heroImage from "../assets/How-to-Choose-a-Pack_7G8A5173-scaled.jpg";
 import pack1 from "../assets/pack1.jpg";
 import pack2 from "../assets/pack2.jpg";
@@ -11,6 +12,8 @@ import pack4 from "../assets/pack5.jpg";
 export default function Products() {
   const navigate = useNavigate();
   const { addToCart } = useCart();
+  const [isModalOpen, setModalOpen] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
   const products = [
     { id: 34562, title: "Tor Backpack", price: 480.75, image: pack1 },
@@ -21,6 +24,8 @@ export default function Products() {
 
   const handleAddToCart = (product) => {
     addToCart(product);
+    setSelectedProduct(product);
+    setModalOpen(true);
   };
 
   const handleProductClick = (productId) => {
@@ -105,6 +110,12 @@ export default function Products() {
           </section>
         </article>
       </main>
+
+      <Modal
+        isOpen={isModalOpen}
+        onClose={() => setModalOpen(false)}
+        product={selectedProduct}
+      />
     </>
   );
 }
