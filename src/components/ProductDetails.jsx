@@ -7,11 +7,26 @@ import pack1 from "../assets/pack1.jpg";
 import pack2 from "../assets/pack2.jpg";
 import pack3 from "../assets/pack4.jpg";
 import pack4 from "../assets/pack5.jpg";
-import pack2Alt from "../assets/pack2Alt.jpg";
+
 import pack1Alt1 from "../assets/pack1Alt1.jpg";
 import pack1Alt2 from "../assets/pack1Alt2.jpg";
 import pack1Alt3 from "../assets/pack1Alt3.jpg";
 import pack1Alt4 from "../assets/pack1Alt4.jpg";
+
+import pack2Alt1 from "../assets/pack2Alt1.jpg";
+import pack2Alt2 from "../assets/pack2Alt2.jpg";
+import pack2Alt3 from "../assets/pack2Alt3.jpg";
+import pack2Alt4 from "../assets/pack2Alt4.jpg";
+
+import pack3Alt1 from "../assets/pack3Alt1.jpg";
+import pack3Alt2 from "../assets/pack3Alt2.jpg";
+import pack3Alt3 from "../assets/pack3Alt3.jpg";
+import pack3Alt4 from "../assets/pack3Alt4.jpg";
+
+import pack4Alt1 from "../assets/pack4Alt1.jpg";
+import pack4Alt2 from "../assets/pack4Alt2.jpg";
+import pack4Alt3 from "../assets/pack4Alt3.jpg";
+import pack4Alt4 from "../assets/pack4Alt4.jpg";
 
 const products = [
   {
@@ -33,24 +48,39 @@ const products = [
     title: "The Pace Backpack",
     price: 250.0,
     image: pack2,
-    description: "Detailed description of The Pace Backpack.",
-    images: [pack2, pack2Alt],
+    description: [
+      "The Pace 30L Rucksack fits everything you need for your next outdoor adventure. Hydration compatible, with an air flow back system, chest and hip straps, a pack away rain cover and convenient multiple pockets including a bottom compartment with a separate opening.",
+      "Dimensions: 52 (H) x 30 (W) 24 (D) cm.",
+      "Fabric type: 100% Polyester",
+    ],
+    images: [pack2, pack2Alt1, pack2Alt2, pack2Alt3, pack2Alt4],
+    inStock: true,
   },
   {
     id: 56789,
     title: "Adventure Backpack",
     price: 350.0,
     image: pack3,
-    description: "Detailed description of Adventure Backpack.",
-    images: [pack3],
+    description: [
+      "The High 50L Rucksack has more than enough space to carry everything you need for your next outdoor adventure. The backpack has multiple pockets, drawcord closure and a padded airmesh system that provides cushioning for your back.",
+      "Dimensions: 52.5 (H) x 33 (W) x 26 (D) cm.",
+      "Fabric type: 100% Polyester",
+    ],
+    images: [pack3, pack3Alt1, pack3Alt2, pack3Alt3, pack3Alt4],
+    inStock: true,
   },
   {
     id: 67890,
     title: "Explorer Backpack",
     price: 135.0,
     image: pack4,
-    description: "Detailed description of Explorer Backpack.",
-    images: [pack4],
+    description: [
+      "Our Elgon Rucksack has a capacity of 35L - the perfect medium sized bag for big adventures. It is made of ripstop fabric with a waterproof rain cover included. The backpack is durable and has multiple pockets for convenient storage.",
+      "Dimensions: 51 (H) x 28 (W) x 22 (D) cm.",
+      "Fabric type: 100% Polyester",
+    ],
+    images: [pack4, pack4Alt1, pack4Alt2, pack4Alt3, pack4Alt4],
+    inStock: true,
   },
 ];
 
@@ -61,7 +91,7 @@ export default function ProductDetails() {
   const { addToCart } = useCart();
   const [isModalOpen, setModalOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
-  
+
   const handleAddToCart = (product) => {
     addToCart(product);
     setSelectedProduct(product);
