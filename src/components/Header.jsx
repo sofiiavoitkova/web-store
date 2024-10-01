@@ -2,10 +2,13 @@ import "../styles/Header.scss";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import logo1 from "../assets/logo1.jpg";
+import { useCart } from "../context/CartContext";
 
 export default function Header() {
   const navigate = useNavigate();
   const [isNavOpen] = useState(false);
+  const { cartItems } = useCart();
+  const cartCount = cartItems.reduce((total, item) => total + item.quantity, 0);
 
   return (
     <header className="header" data-header>
@@ -47,25 +50,17 @@ export default function Header() {
         </nav>
 
         <div className="header-actions">
-          <button className="header-action-btn">
-            <ion-icon name="person-outline" aria-hidden="true"></ion-icon>
-            <p className="header-action-label">Sign in</p>
-          </button>
-
-          <button className="header-action-btn">
-            <ion-icon name="heart-outline" aria-hidden="true"></ion-icon>
-            <p className="header-action-label">Wishlist</p>
-            <div className="btn-badge" aria-hidden="true">
-              2
-            </div>
-          </button>
-
           <button
             className="header-action-btn"
             onClick={() => navigate("/cart")}
           >
             <ion-icon name="cart-outline" aria-hidden="true"></ion-icon>
             <p className="header-action-label">Cart</p>
+            {cartCount > 0 && (
+              <div className="btn-badge" aria-hidden="true">
+                {cartCount}
+              </div>
+            )}
           </button>
         </div>
       </div>
