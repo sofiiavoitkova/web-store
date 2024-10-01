@@ -1,0 +1,149 @@
+.product-details {
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+    padding: 30px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    margin: 40px auto;
+  }
+  
+  .image-container {
+    position: relative;
+    flex: 2;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .product-image {
+    width: 400px;
+    height: 600px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+  
+  .image-gallery {
+    position: absolute;
+    right: -100px;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .thumbnail {
+    width: 80px;
+    height: 100px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 2px solid #ddd;
+    transition: border-color 0.3s;
+    margin-top: 10px;
+  }
+  
+  .thumbnail:hover,
+  .thumbnail:focus,
+  .thumbnail.active {
+    border-color: #007bff;
+  }
+  
+  .product-info {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 100px;
+  }
+  
+  .product-info h2 {
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+    
+  }
+  
+  .product-info .description {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+  
+  .product-info .price {
+    font-size: 2rem;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 30px;
+  }
+  
+  .product-options {
+    margin: 20px 0;
+  }
+  
+  .product-options label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+  }
+  
+  .product-options select {
+    padding: 12px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  
+  .actions {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .add-to-cart-btn,
+  .buy-now-btn {
+    padding: 15px 35px;
+    font-size: 1.2rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    color: white;
+    transition: background-color 0.3s ease;
+  }
+  
+  .add-to-cart-btn {
+    background-color: #007bff;
+  }
+  
+  .buy-now-btn {
+    background-color: #28a745;
+  }
+  
+  .add-to-cart-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  .buy-now-btn:hover {
+    background-color: #218838;
+  }
+  
+  .description p {
+    margin-bottom: 1em;
+  }
+
+  .in-stock {
+  color: #28a745;
+  font-weight: 600;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+}
+
+.in-stock i {
+  margin-right: 8px;
+  color: #28a745;
+  font-size: 1.5rem;
+}
+
+    
