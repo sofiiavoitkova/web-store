@@ -36,7 +36,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="footer-bottom">
-          <p>© 2024 TrekQuest. All rights reserved.</p>
+          <p>&copy; 2024 TrekQuest. All rights reserved.</p>
         </div>
       </div>
     </footer>
