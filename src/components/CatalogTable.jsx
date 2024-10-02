@@ -1,5 +1,6 @@
-import "../styles/CatalogTable.scss";
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import "../styles/CatalogTable.scss";
 import product1 from "../assets/product1.jpg";
 import product2 from "../assets/product2.jpg";
 import product3 from "../assets/product3.jpg";
@@ -29,8 +30,13 @@ const productsData = [
 ];
 
 export default function CatalogTable() {
+  const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredProducts, setFilteredProducts] = useState(productsData);
+
+  const handleProductClick = (productId) => {
+    navigate(`/product/${productId}`);
+  };
 
   useEffect(() => {
     const results = productsData.filter((product) =>
@@ -68,6 +74,12 @@ export default function CatalogTable() {
                   src={product.image}
                   alt={product.title}
                   className="product-image"
+                  style={{
+                    width: "90px",
+                    height: "110px",
+                    objectFit: "cover",
+                    borderRadius: "1px",
+                  }}
                 />
               </td>
               <td>{product.title}</td>
@@ -75,7 +87,12 @@ export default function CatalogTable() {
               <td>${product.price.toFixed(2)}</td>
               <td>{product.id}</td>
               <td>
-                <button className="quick-view-btn">Quick View</button>
+                <button
+                  className="quick-view-btn"
+                  onClick={() => handleProductClick(product.id)}
+                >
+                  Quick View
+                </button>
               </td>
             </tr>
           ))}
