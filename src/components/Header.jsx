@@ -32,17 +32,7 @@ export default function Header() {
               </Link>
             </li>
             <li>
-              <a href="#" className="navbar-link">
-                About
-              </a>
-            </li>
-            <li>
-              <a href="#" className="navbar-link">
-                Blog
-              </a>
-            </li>
-            <li>
-              <a href="#" className="navbar-link">
+              <a href="/contact" className="navbar-link">
                 Contact
               </a>
             </li>
