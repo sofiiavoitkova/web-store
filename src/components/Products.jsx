@@ -46,9 +46,9 @@ export default function Products() {
             <div className="container">
               <div className="hero-content">
                 <p className="hero-subtitle">Lightweight. Durable. Reliable.</p>
-                <h2 className="h1 hero-title">Gear That Goes the Distance</h2>
+                <h2 className="hero-title">Gear That Goes the Distance</h2>
                 <button
-                  className="btn btn-primary"
+                  className="btn-primary"
                   onClick={() => navigate("/catalog")}
                 >
                   Shop Now
@@ -59,7 +59,7 @@ export default function Products() {
 
           <section className="product-section">
             <div className="container">
-              <h2 className="h2 section-title">Products of the week</h2>
+              <h2 className="section-title">Products of the week</h2>
               <ul className="product-list">
                 {products.map((product) => (
                   <li key={product.id}>
@@ -75,14 +75,14 @@ export default function Products() {
                         />
                       </figure>
                       <div className="card-content">
-                        <h3 className="h4 card-title">{product.title}</h3>
+                        <h3 className="card-title">{product.title}</h3>
                         <div className="card-price">
                           <data>${product.price.toFixed(2)}</data>
                         </div>
                       </div>
                       <div className="card-actions">
                         <button
-                          className="card-action-btn cart-btn"
+                          className="card-action-btn"
                           onClick={(e) => {
                             e.stopPropagation();
                             handleAddToCart(product);
@@ -101,7 +101,7 @@ export default function Products() {
               </ul>
 
               <button
-                className="btn btn-outline"
+                className="btn-outline"
                 onClick={() => navigate("/catalog")}
               >
                 View Catalog
