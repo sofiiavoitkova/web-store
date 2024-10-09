@@ -33,17 +33,28 @@ export default function CatalogTable() {
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredProducts, setFilteredProducts] = useState(productsData);
+  const [debouncedSearchTerm, setDebouncedSearchTerm] = useState("");
 
   const handleProductClick = (productId) => {
     navigate(`/product/${productId}`);
   };
 
   useEffect(() => {
+    const handler = setTimeout(() => {
+      setDebouncedSearchTerm(searchTerm);
+    }, 300);
+
+    return () => {
+      clearTimeout(handler);
+    };
+  }, [searchTerm]);
+
+  useEffect(() => {
     const results = productsData.filter((product) =>
-      product.title.toLowerCase().includes(searchTerm.toLowerCase())
+      product.title.toLowerCase().includes(debouncedSearchTerm.toLowerCase())
     );
     setFilteredProducts(results);
-  }, [searchTerm]);
+  }, [debouncedSearchTerm]);
 
   return (
     <div className={styles.catalogContainer}>
@@ -54,46 +65,44 @@ export default function CatalogTable() {
         onChange={(e) => setSearchTerm(e.target.value)}
         className={styles.searchBar}
       />
-  
 
-        <table className={styles.productTable}>
-          <thead>
-            <tr>
-              <th>Image</th>
-              <th>Title</th>
-              <th>Description</th>
-              <th>Price</th>
-              <th>ID</th>
-              <th>Action</th>
+      <table className={styles.productTable}>
+        <thead>
+          <tr>
+            <th>Image</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>ID</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {filteredProducts.map((product) => (
+            <tr key={product.id}>
+              <td>
+                <img
+                  src={product.image}
+                  alt={product.title}
+                  className={styles.productImage}
+                />
+              </td>
+              <td>{product.title}</td>
+              <td className={styles.descriptionCell}>{product.description}</td>
+              <td>${product.price.toFixed(2)}</td>
+              <td>{product.id}</td>
+              <td>
+                <button
+                  className={styles.quickViewBtn}
+                  onClick={() => handleProductClick(product.id)}
+                >
+                  Quick View
+                </button>
+              </td>
             </tr>
-          </thead>
-          <tbody>
-            {filteredProducts.map((product) => (
-              <tr key={product.id}>
-                <td>
-                  <img
-                    src={product.image}
-                    alt={product.title}
-                    className={styles.productImage}
-                  />
-                </td>
-                <td>{product.title}</td>
-                <td className={styles.descriptionCell}>{product.description}</td>
-                <td>${product.price.toFixed(2)}</td>
-                <td>{product.id}</td>
-                <td>
-                  <button
-                    className={styles.quickViewBtn}
-                    onClick={() => handleProductClick(product.id)}
-                  >
-                    Quick View
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-
-  );  
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
 }
