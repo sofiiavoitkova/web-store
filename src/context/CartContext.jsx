@@ -32,8 +32,39 @@ export function CartProvider({ children }) {
     );
   };
 
+  // Function to clear the cart
+  const clearCart = () => {
+    setCartItems([]);
+  };
+
+  // Function to validate cart items
+  const validateCart = () => {
+    if (cartItems.length === 0) {
+      console.log('Cart is empty. All good!');
+      return true;
+    }
+
+    const allItemsAreValid = cartItems.every(
+      (item) =>
+        item.id !== undefined &&
+        item.name !== undefined &&
+        item.quantity !== undefined &&
+        item.quantity > 0
+    );
+
+    if (allItemsAreValid) {
+      console.log('All cart items are valid.');
+    } else {
+      console.log('Some cart items are invalid.');
+    }
+
+    return allItemsAreValid;
+  };
+
   return (
-    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart, updateQuantity }}>
+    <CartContext.Provider
+      value={{ cartItems, addToCart, removeFromCart, updateQuantity, clearCart, validateCart }}
+    >
       {children}
     </CartContext.Provider>
   );

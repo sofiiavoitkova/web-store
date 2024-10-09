@@ -5,7 +5,6 @@ import Catalog from "./pages/Catalog";
 import Cart from "./pages/Cart";
 import { CartProvider } from "./context/CartContext";
 import ProductDetails from "./pages/ProductDetails";
-import "./styles/App.css";
 import Contact from "./pages/Contact";
 
 function App() {

@@ -1,32 +1,32 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-import "../styles/ProductDetails.scss";
-import { useCart } from "../context/CartContext";
-import Modal from "./Modal";
-import pack1 from "../assets/pack1.jpg";
-import pack2 from "../assets/pack2.jpg";
-import pack3 from "../assets/pack4.jpg";
-import pack4 from "../assets/pack5.jpg";
+import styles from "./productDetails.module.scss";
+import { useCart } from "../../context/CartContext";
+import Modal from "../../components/Modal/Modal";
+import pack1 from "../../assets/pack1.jpg";
+import pack2 from "../../assets/pack2.jpg";
+import pack3 from "../../assets/pack4.jpg";
+import pack4 from "../../assets/pack5.jpg";
 
-import pack1Alt1 from "../assets/pack1Alt1.jpg";
-import pack1Alt2 from "../assets/pack1Alt2.jpg";
-import pack1Alt3 from "../assets/pack1Alt3.jpg";
-import pack1Alt4 from "../assets/pack1Alt4.jpg";
+import pack1Alt1 from "../../assets/pack1Alt1.jpg";
+import pack1Alt2 from "../../assets/pack1Alt2.jpg";
+import pack1Alt3 from "../../assets/pack1Alt3.jpg";
+import pack1Alt4 from "../../assets/pack1Alt4.jpg";
 
-import pack2Alt1 from "../assets/pack2Alt1.jpg";
-import pack2Alt2 from "../assets/pack2Alt2.jpg";
-import pack2Alt3 from "../assets/pack2Alt3.jpg";
-import pack2Alt4 from "../assets/pack2Alt4.jpg";
+import pack2Alt1 from "../../assets/pack2Alt1.jpg";
+import pack2Alt2 from "../../assets/pack2Alt2.jpg";
+import pack2Alt3 from "../../assets/pack2Alt3.jpg";
+import pack2Alt4 from "../../assets/pack2Alt4.jpg";
 
-import pack3Alt1 from "../assets/pack3Alt1.jpg";
-import pack3Alt2 from "../assets/pack3Alt2.jpg";
-import pack3Alt3 from "../assets/pack3Alt3.jpg";
-import pack3Alt4 from "../assets/pack3Alt4.jpg";
+import pack3Alt1 from "../../assets/pack3Alt1.jpg";
+import pack3Alt2 from "../../assets/pack3Alt2.jpg";
+import pack3Alt3 from "../../assets/pack3Alt3.jpg";
+import pack3Alt4 from "../../assets/pack3Alt4.jpg";
 
-import pack4Alt1 from "../assets/pack4Alt1.jpg";
-import pack4Alt2 from "../assets/pack4Alt2.jpg";
-import pack4Alt3 from "../assets/pack4Alt3.jpg";
-import pack4Alt4 from "../assets/pack4Alt4.jpg";
+import pack4Alt1 from "../../assets/pack4Alt1.jpg";
+import pack4Alt2 from "../../assets/pack4Alt2.jpg";
+import pack4Alt3 from "../../assets/pack4Alt3.jpg";
+import pack4Alt4 from "../../assets/pack4Alt4.jpg";
 
 const products = [
   {
@@ -42,7 +42,6 @@ const products = [
     images: [pack1, pack1Alt1, pack1Alt2, pack1Alt3, pack1Alt4],
     inStock: true,
   },
-
   {
     id: 23412,
     title: "The Pace Backpack",
@@ -103,41 +102,43 @@ export default function ProductDetails() {
   }
 
   return (
-    <div className="product-details">
-      <div className="image-container">
+    <div className={styles.productDetails}>
+      {" "}
+      {/* Use the imported styles */}
+      <div className={styles.imageContainer}>
         <img
           src={selectedImage}
           alt={product.title}
-          className="product-image"
+          className={styles.productImage}
         />
-        <div className="image-gallery">
+        <div className={styles.imageGallery}>
           {product.images.map((img, index) => (
             <img
               key={index}
               src={img}
               alt={`${product.title} ${index + 1}`}
-              className="thumbnail"
+              className={styles.thumbnail}
               onClick={() => setSelectedImage(img)}
             />
           ))}
         </div>
       </div>
-      <div className="product-info">
+      <div className={styles.productInfo}>
         <h2>{product.title}</h2>
         {product.inStock && (
-          <p className="in-stock">
+          <p className={styles.inStock}>
             <i className="fas fa-check-circle"></i> In stock
           </p>
         )}
-        <div className="description">
+        <div className={styles.description}>
           {product.description.map((line, index) => (
             <p key={index}>{line}</p>
           ))}
         </div>
-        <p className="price">Price: ${product.price.toFixed(2)}</p>
-        <div className="actions">
+        <p className={styles.price}>Price: ${product.price.toFixed(2)}</p>
+        <div className={styles.actions}>
           <button
-            className="add-to-cart-btn"
+            className={styles.addToCartBtn}
             onClick={(e) => {
               e.stopPropagation();
               handleAddToCart(product);

@@ -1,6 +1,6 @@
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import Contact from "../components/Contact";
+import Header from "../components/Header/Header.jsx";
+import Footer from "../components/Footer/Footer.jsx";
+import Contact from "../components/Contact/Contact.jsx";
 
 export default function ContactPage() {
   return (

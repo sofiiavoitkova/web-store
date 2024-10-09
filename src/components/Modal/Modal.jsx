@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import "../styles/Modal.scss";
+import styles from "./modal.module.scss";
 
 export default function Modal({ isOpen, onClose, product }) {
   const navigate = useNavigate();
@@ -8,29 +8,29 @@ export default function Modal({ isOpen, onClose, product }) {
   if (!isOpen) return null;
 
   return (
-    <div className="modal-overlay">
-      <div className="modal-content">
-        <button className="modal-close" onClick={onClose}>
+    <div className={styles.modalOverlay}>
+      <div className={styles.modalContent}>
+        <button className={styles.modalClose} onClick={onClose}>
           &times;
         </button>
         <h3>Product Added to Cart</h3>
-        <div className="modal-product-info">
+        <div className={styles.modalProductInfo}>
           <img
             src={product.image}
             alt={product.title}
-            className="modal-product-image"
+            className={styles.modalProductImage}
           />
-          <div className="modal-product-details">
+          <div className={styles.modalProductDetails}>
             <h4>{product.title}</h4>
-            <p>Price: £{product.price.toFixed(2)}</p>
+            <p>Price: ${product.price.toFixed(2)}</p>
             <p>Quantity: 1</p>
           </div>
         </div>
-        <div className="modal-actions">
-          <button className="continue-shopping-btn" onClick={onClose}>
+        <div className={styles.modalActions}>
+          <button className={styles.continueShoppingBtn} onClick={onClose}>
             Continue Shopping
           </button>
-          <button className="checkout-btn" onClick={() => navigate("/cart")}>
+          <button className={styles.checkoutBtn} onClick={() => navigate("/cart")}>
             Go to Checkout
           </button>
         </div>

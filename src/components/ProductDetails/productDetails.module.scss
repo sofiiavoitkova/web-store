@@ -1,0 +1,142 @@
+.productDetails {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  margin: 40px auto;
+  min-height: 100vh;
+}
+
+.imageContainer {
+  position: relative;
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+.productImage {
+  width: 30vw;
+  height: 40vw;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+}
+
+
+
+.imageGallery {
+  position: relative;
+  right: -40px;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.thumbnail {
+  width: 6vw;
+  height: 8vw;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 2px solid #ddd;
+  transition: border-color 0.3s;
+}
+
+.thumbnail:hover,
+.thumbnail:focus,
+.thumbnail.active {
+  border-color: #007bff;
+}
+
+.productInfo {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 70px;
+}
+
+.productInfo h2 {
+  font-size: 2.8vw;
+  margin-bottom: 15px;
+}
+
+.description {
+  font-size: 1.2vw;
+  color: #555;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.price {
+  font-size: 2vw;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.productOptions {
+  margin: 20px 0;
+}
+
+.productOptions label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.productOptions select {
+  padding: 12px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.actions {
+  display: flex;
+  gap: 20px;
+}
+
+.addToCartBtn {
+  padding: 1vw 3vw;
+  font-size: 1.2vw;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.addToCartBtn {
+  background-color: #007bff;
+}
+
+
+.addToCartBtn:hover {
+  background-color: #0056b3;
+}
+
+.description p {
+  margin-bottom: 1em;
+}
+
+.inStock {
+  color: #28a745;
+  font-weight: 600;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  font-size: 1.2vw;
+}
+
+.inStock i {
+  margin-right: 8px;
+  color: #28a745;
+  font-size: 1.5rem;
+}

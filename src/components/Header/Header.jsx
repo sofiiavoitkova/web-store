@@ -1,8 +1,8 @@
-import "../styles/Header.scss";
+import styles from "./header.module.scss";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import logo1 from "../assets/logo1.jpg";
-import { useCart } from "../context/CartContext";
+import logo1 from "../../assets/logo1.jpg";
+import { useCart } from "../../context/CartContext";
 
 export default function Header() {
   const navigate = useNavigate();
@@ -11,43 +11,46 @@ export default function Header() {
   const cartCount = cartItems.reduce((total, item) => total + item.quantity, 0);
 
   return (
-    <header className="header" data-header>
-      <div className="container">
-        <div className="header-logo">
-          <Link to="/" className="logo">
+    <header className={styles.header}>
+      <div className={styles.container}>
+        <div className={styles.logo}>
+          <Link to="/" className={styles.logo}>
             <img src={logo1} alt="logo" width="230" height="31" />
           </Link>
         </div>
 
-        <nav className={`navbar ${isNavOpen ? "active" : ""}`} data-navbar>
-          <ul className="navbar-list">
+        <nav
+          className={`${styles.navbar} ${isNavOpen ? styles.active : ""}`}
+          data-navbar
+        >
+          <ul className={styles.navbarList}>
             <li>
-              <Link to="/" className="navbar-link">
+              <Link to="/" className={styles.navbarLink}>
                 Home
               </Link>
             </li>
             <li>
-              <Link to="/catalog" className="navbar-link">
+              <Link to="/catalog" className={styles.navbarLink}>
                 Catalog
               </Link>
             </li>
             <li>
-              <a href="/contact" className="navbar-link">
+              <a href="/contact" className={styles.navbarLink}>
                 Contact
               </a>
             </li>
           </ul>
         </nav>
 
-        <div className="header-actions">
+        <div className={styles.actions}>
           <button
-            className="header-action-btn"
+            className={styles.actionBtn}
             onClick={() => navigate("/cart")}
           >
             <ion-icon name="cart-outline" aria-hidden="true"></ion-icon>
-            <p className="header-action-label">Cart</p>
+            <p className={styles.actionLabel}>Cart</p>
             {cartCount > 0 && (
-              <div className="btn-badge" aria-hidden="true">
+              <div className={styles.badge} aria-hidden="true">
                 {cartCount}
               </div>
             )}
