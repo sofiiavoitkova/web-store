@@ -1,7 +1,8 @@
 import styles from "./products.module.scss";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useCart } from "../../context/CartContext";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../redux/slice";
 import Modal from "../Modal/Modal";
 import heroImage from "../../assets/How-to-Choose-a-Pack_7G8A5173-scaled.jpg";
 import pack1 from "../../assets/pack1.jpg";
@@ -11,7 +12,7 @@ import pack4 from "../../assets/pack5.jpg";
 
 export default function Products() {
   const navigate = useNavigate();
-  const { addToCart } = useCart();
+  const dispatch = useDispatch();
   const [isModalOpen, setModalOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
 
@@ -23,7 +24,7 @@ export default function Products() {
   ];
 
   const handleAddToCart = (product) => {
-    addToCart(product);
+    dispatch(addToCart(product));
     setSelectedProduct(product);
     setModalOpen(true);
   };

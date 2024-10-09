@@ -1,11 +1,14 @@
 import React from "react";
-import { useCart } from "../../context/CartContext";
+import { useSelector, useDispatch } from "react-redux";
+import { removeFromCart, updateQuantity, clearStore } from "../../redux/slice";
 import styles from "./cart.module.scss";
 import visaIcon from "../../assets/visa.svg";
 import mastercardIcon from "../../assets/mastercard.svg";
 
 export default function Cart() {
-  const { cartItems, removeFromCart, updateQuantity, clearCart, validateCart } = useCart();
+  const dispatch = useDispatch();
+
+  const cartItems = useSelector((state) => state.globalState.cart);
 
   const getTotalPrice = () => {
     return cartItems
@@ -14,8 +17,7 @@ export default function Cart() {
   };
 
   const handleClearAndValidate = () => {
-    clearCart();
-    validateCart();
+    dispatch(clearStore());
   };
 
   return (
@@ -43,7 +45,10 @@ export default function Cart() {
                         id={`quantity-${item.id}`}
                         value={item.quantity}
                         onChange={(e) =>
-                          updateQuantity(item.id, parseInt(e.target.value))
+                          dispatch(updateQuantity({ 
+                            id: item.id, 
+                            quantity: parseInt(e.target.value, 10) 
+                          }))
                         }
                       >
                         {[1, 2, 3, 4, 5].map((qty) => (
@@ -54,7 +59,7 @@ export default function Cart() {
                       </select>
                     </div>
                     <button
-                      onClick={() => removeFromCart(item.id)}
+                      onClick={() => dispatch(removeFromCart(item.id))}
                       className={styles.removeBtn}
                     >
                       Remove

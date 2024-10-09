@@ -1,13 +1,15 @@
 import styles from "./header.module.scss";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import logo1 from "../../assets/logo1.jpg";
-import { useCart } from "../../context/CartContext";
 
 export default function Header() {
   const navigate = useNavigate();
   const [isNavOpen] = useState(false);
-  const { cartItems } = useCart();
+
+  const cartItems = useSelector((state) => state.globalState.cart);
+
   const cartCount = cartItems.reduce((total, item) => total + item.quantity, 0);
 
   return (

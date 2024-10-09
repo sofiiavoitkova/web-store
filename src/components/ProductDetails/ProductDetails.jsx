@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import styles from "./productDetails.module.scss";
-import { useCart } from "../../context/CartContext";
 import Modal from "../../components/Modal/Modal";
 import pack1 from "../../assets/pack1.jpg";
 import pack2 from "../../assets/pack2.jpg";
@@ -104,7 +103,6 @@ export default function ProductDetails() {
   return (
     <div className={styles.productDetails}>
       {" "}
-      {/* Use the imported styles */}
       <div className={styles.imageContainer}>
         <img
           src={selectedImage}
