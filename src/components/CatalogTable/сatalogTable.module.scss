@@ -1,0 +1,55 @@
+.catalogContainer {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  
+}
+
+
+.searchBar {
+  width: 40%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.productTable {
+
+  width: 80%;
+  min-height: 80vh;
+}
+
+.productTable th,
+.productTable td {
+  padding: 15px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.productImage {
+  width: 10vw;
+  height: auto;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.descriptionCell {
+  color: #555;
+}
+
+.quickViewBtn {
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.quickViewBtn:hover {
+  background-color: #0056b3;
+}

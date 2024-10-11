@@ -1,0 +1,125 @@
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+input,
+button {
+  background: none;
+  border: none;
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+html {
+  font-family: "Jost", sans-serif;
+  color: black;
+  scroll-behavior: smooth;
+}
+
+img {
+  height: auto;
+}
+
+.container {
+  padding-inline: 15px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+body {
+  background: white;
+}
+
+.header {
+  position: relative;
+  padding: 15px 0;
+  border-bottom: 1px solid rgb(171, 168, 168);
+  margin-bottom: 67px;
+  background-color: white;
+  z-index: 100;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  flex: 1;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.actionBtn ion-icon {
+  font-size: 1.5vw;
+}
+
+.actionLabel {
+  font-size: 0.875vw;
+  text-align: center;
+}
+
+.navbar {
+  position: absolute;
+  top: calc(100% + 1px);
+  left: 0;
+  width: 100%;
+  background: white;
+}
+
+.navbarList {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+.navbarLink {
+  font-size: 1.25vw;
+  font-weight: 500;
+  padding-block: 20px;
+  color: black;
+}
+
+.navbarLink:is(:hover, :focus) {
+  color: rgb(11, 107, 40);
+}
+
+.badge {
+  position: absolute;
+  top: 8px;
+  right: 30px;
+  background-color: #000;
+  color: #fff;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  padding: 2px 6px;
+  font-size: 0.65rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
